@@ -27,11 +27,11 @@ public class Ship {
     }
 
     public int getY_coord(){
-        return y_coord
+        return y_coord;
     }
 
     public int getOrientation(){
-        return orientation
+        return orientation;
     }
 
     // Setters
@@ -54,7 +54,7 @@ public class Ship {
     public Ship(int option){
         if(option == 1){
             type = "Submarine";
-            size = 2
+            size = 2;
         }
         else if(option == 2){
             type = "Destroyer";
