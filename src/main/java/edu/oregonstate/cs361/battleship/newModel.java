@@ -1,3 +1,4 @@
+
 package edu.oregonstate.cs361.battleship;
 
 
@@ -30,6 +31,3 @@ public class newModel {
 
     //Add functions to create instance of ship with correct id for each player and computer ship
     public
-
-
-}
