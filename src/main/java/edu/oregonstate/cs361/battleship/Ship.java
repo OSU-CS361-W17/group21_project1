@@ -14,6 +14,43 @@ public class Ship {
     int y_coord;
     int orientation;
 
+    /**************
+    Class Functions
+    ***************/
+    // Getters
+    public int getSize(){
+        return size;
+    }
+
+    public int getX_coord(){
+        return x_coord;
+    }
+
+    public int getY_coord(){
+        return y_coord
+    }
+
+    public int getOrientation(){
+        return orientation
+    }
+
+    // Setters
+    public void setSize(int in){
+        size = in;
+    }
+
+    public void setX_coord(int in){
+        x_coord = in;
+    }
+    public void setY_coord(int in){
+        y_coord = in;
+    }
+
+    public void setOrientation(int in){
+        orientation = in;
+    }
+
+    // Ship Constructor
     public Ship(int option){
         if(option == 1){
             type = "Submarine";
@@ -55,6 +92,9 @@ public class Ship {
             type = "Computer_AircraftCarrier";
             size = 5;
         }
+
     }
+
+
 
 }
