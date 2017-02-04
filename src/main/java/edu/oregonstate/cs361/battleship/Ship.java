@@ -1,3 +1,4 @@
+
 package edu.oregonstate.cs361.battleship;
 
 
@@ -27,11 +28,11 @@ public class Ship {
     }
 
     public int getY_coord(){
-        return y_coord;
+        return y_coord
     }
 
     public int getOrientation(){
-        return orientation;
+        return orientation
     }
 
     // Setters
@@ -39,62 +40,38 @@ public class Ship {
         size = in;
     }
 
-    public void setX_coord(int in){
-        x_coord = in;
+    public coords setCoords(int xin, int yin){
+        x_coords = xin;
+        y_coo
     }
-    public void setY_coord(int in){
-        y_coord = in;
-    }
+
 
     public void setOrientation(int in){
         orientation = in;
     }
 
     // Ship Constructor
-    public Ship(int option){
-        if(option == 1){
+    public Ship(string id){
+        if(id == 'submarine'){
             type = "Submarine";
-            size = 2;
+            size = 2
         }
-        else if(option == 2){
+        else if(id == 'destroyer'){
             type = "Destroyer";
             size = 2;
         }
-        else if(option == 3){
+        else if(id == 'cruiser'){
             type = "Cruiser";
             size = 3;
         }
-        else if(option == 4){
+        else if(id == 'battleship'){
             type = "Battleship";
             size = 4;
         }
-        else if(option == 5){
+        else if(id == 'aircraftCarrier') {
             type = "AircraftCarrier";
             size = 5;
         }
-        else if(option == 11){
-            type = "Computer_Submarine";
-            size = 2;
-        }
-        else if(option == 12){
-            type = "Computer_Destroyer";
-            size = 2;
-        }
-        else if(option == 13){
-            type = "Computer_Cruiser";
-            size = 3;
-        }
-        else if(option == 14){
-            type = "Computer_Battleship";
-            size = 4;
-        }
-        else if(option == 15){
-            type = "Computer_AircraftCarrier";
-            size = 5;
-        }
+
 
     }
-
-
-
-}
