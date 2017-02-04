@@ -31,6 +31,18 @@ public class Main {
 
     //This controller should take a json object from the front end, and place the ship as requested, and then return the object.
     private static String placeShip(Request req) {
+        Gson gson = new Gson();
+        GameModel model = gson.fromJson(req.body(),GameModel.class);
+        int x_coord, y_coord;
+        string orientation;
+        x_start = Integer.parseInt(req.params(":col"));
+        y_start = Integer.parseInt(req.params(":row"));
+        orientation = req.params("orientation");
+
+
+
+
+
         return null;
     }
 
