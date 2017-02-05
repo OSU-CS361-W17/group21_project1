@@ -27,7 +27,10 @@ public class Main {
 
     //This function should accept an HTTP request and deseralize it into an actual Java object.
     private static BattleshipModel getModelFromReq(Request req){
-        return null;
+        Gson gson = new Gson();
+        String json = req.body();
+        BattleshipModel gameInfo = gson.fromJson(json, BattleshipModel.class);
+        return gameInfo;
     }
 
     //This controller should take a json object from the front end, and place the ship as requested, and then return the object.
