@@ -4,7 +4,7 @@
  * Created by johnbren85 on 2/4/17.
  */
 
-public class coords {
+public class coord {
     int x;
     int y;
 
