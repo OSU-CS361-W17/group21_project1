@@ -30,4 +30,7 @@ public class newModel {
     List<coords> playerMisses;
 
     //Add functions to create instance of ship with correct id for each player and computer ship
-    public
+    public newModel(){
+        aircraftCarrier
+    }
+}
