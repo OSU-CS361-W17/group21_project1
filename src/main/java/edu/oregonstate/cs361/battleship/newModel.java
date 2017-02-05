@@ -1,4 +1,3 @@
-
 package edu.oregonstate.cs361.battleship;
 
 
@@ -29,5 +28,10 @@ public class newModel {
     List<coords> compMisses;
     List<coords> playerMisses;
 
+    aircraftCarrier = Ship('aircraftcarrier')
+
     //Add functions to create instance of ship with correct id for each player and computer ship
     public
+
+
+}

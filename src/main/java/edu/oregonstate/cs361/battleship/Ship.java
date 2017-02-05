@@ -1,4 +1,3 @@
-
 package edu.oregonstate.cs361.battleship;
 
 
@@ -41,8 +40,8 @@ public class Ship {
     }
 
     public coords setCoords(int xin, int yin){
-        x_coords = xin;
-        y_coo
+        new_coords = CoordSet(xin,yin);
+        return new_coords;
     }
 
 
@@ -73,5 +72,6 @@ public class Ship {
             size = 5;
         }
 
-
     }
+
+}

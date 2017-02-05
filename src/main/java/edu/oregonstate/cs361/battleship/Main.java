@@ -1,4 +1,3 @@
-
 package edu.oregonstate.cs361.battleship;
 
 import spark.Request;
@@ -51,4 +50,5 @@ public class Main {
     private static String fireAt(Request req) {
         return null;
     }
+
 }
