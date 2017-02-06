@@ -44,7 +44,7 @@ public class Main {
     //This controller should take a json object from the front end, and place the ship as requested, and then return the object.
     private static String placeShip(Request req) {
         Gson gson = new Gson();
-        GameModel model = getModelFromReq(req)
+        GameModel model = getModelFromReq(req);
         int x_start, y_start;
         string orientation, type;
         x_start = Integer.parseInt(req.params(":col"));
@@ -105,7 +105,95 @@ public class Main {
     }
 
     //Similar to placeShip, but with firing.
-    private static String fireAt(Request req) {
-        return null;
+    private static String fireAt(Response res, Request req) {
+        Gson gson = new Gson();
+
+        // get battleship model  from request
+        GameModel model = getModelFromReq(req);
+
+        Coord fire = new Coord(Integer.parseInt(req.params(":col")), Integer.parseInt(req.params(":row")));
+
+        int x_start, y_start;
+        string orientation, type;
+        x_start = Integer.parseInt(req.params(":col"));
+        y_start = Integer.parseInt(req.params(":row"));
+
+//      shootrow = Integer.parseInt(req.params(":row"));
+//      shootcol = Integer.parseInt(req.params(":col"));
+//
+//      Point shootpoint = new Point(shootrow, shootcol);
+
+
+        orientation = req.params("orientation");
+        type = req.paras(":id");
+
+        Random num = new Random();
+
+//        BattleshipModel.Ship[] user_ships = { model.player_aircraftCarrier, model.player_battleship,
+//                                                model.player_cruiser, model.player_destroyer, model.player_submarine};
+//
+//        BattleshipModel.Ship[] AI_ships = { model.player_aircraftCarrier, model.player_battleship,
+//                model.player_cruiser, model.player_destroyer, model.player_submarine};
+
+
+        if (! checkRepeatFire(fire, model.playerHits, model.playerMisses)) {
+            if (checkCollision(fire,model.player_aircraftCarrier, model.player_battleship,
+                    model.player_cruiser, model.player_destroyer, model.player_submarine)) {
+                model.playerHits.add(fire);
+            } else {
+                model.playerMisses.add(fire);
+            }
+        }
+
+            Coordinate fireAI = new Coordinate(rand.nextInt(10) + 1, rand.nextInt(10) +1);
+
+        if (checkCollision(fireAI,model.player_aircraftCarrier, model.player_battleship,
+                model.player_cruiser, model.player_destroyer, model.player_submarine )) {
+            model.computerHits.add(fireAI);
+        } else {
+            model.computerMisses.add(fireAI);
+        }
+
+        if (checkWin(model.playerHits, model.computerHits)) {
+            model.ResetGame();
+        }
+
+        System.out.println(gson.toJson(model));
+        return gson.toJson(model);
     }
+
+
+    static boolean checkRepeatFire(Coordinate cord, List<Coordinate> hit, List<Coordinate> miss) {
+
+        for (Coordinate aHit : hit) {
+            if (cord.Across == aHit.Across && cord.Down == aHit.Down)
+                return true;
+        }
+        for (Coordinate aMiss : miss) {
+            if (cord.Across == aMiss.Across && cord.Down == aMiss.Down)
+                return true;
+        }
+        return false;
+    }
+
+        //win?
+        private static boolean checkWin(List<Coordinate> phits, List<Coordinate> chits){
+            boolean playerWin=false;
+            boolean computerWin=false;
+
+            if(phits.size()==16)
+                playerWin=true;
+
+            if(chits.size()==16)
+                computerWin=true;
+
+            if(playerWin || (playerWin && computerWin)) {
+                System.out.println("Game won by player");
+                return true;
+            }
+
+    }
+
+    }
+
 }
